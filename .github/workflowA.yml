@@ -1,0 +1,21 @@
+name: Checkout Repo
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  checkout:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+        with:
+          repository: iamvijayp/terratest
+          ref: main
+      - name: List Contents
+        run: |
+          cd terratest  # Assuming 'terratest' is the directory name
+          ls
